@@ -1,11 +1,14 @@
 import express from 'express'
-import https from 'https'
 import {Server} from 'socket.io'
+
+import http from 'http';
+
+const server = http.createServer(app); // Use HTTP for compatibility with Render's SSL
+
 
 
 const port = process.env.PORT || 3000;
 const app = express()
-const server = https.createServer(app);
 
 const io = new Server(server,{
     cors:{
