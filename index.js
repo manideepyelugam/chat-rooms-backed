@@ -3,7 +3,7 @@ import https from 'https'
 import {Server} from 'socket.io'
 
 
-
+const port = process.env.PORT || 3000;
 const app = express()
 const server = https.createServer(app);
 
@@ -84,8 +84,6 @@ io.on("connection",(socket) => {
     
 })
 
-
-server.listen(3000,() => {
-    console.log('server listening on 3000');
-    
-})
+server.listen(port, () => {
+    console.log(`server listening on ${port}`);
+});
