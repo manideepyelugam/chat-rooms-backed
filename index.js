@@ -1,15 +1,15 @@
 import express from 'express'
-import http from 'http'
+import https from 'https'
 import {Server} from 'socket.io'
 
 
 
 const app = express()
-const server = http.createServer(app);
+const server = https.createServer(app);
 
 const io = new Server(server,{
     cors:{
-        origin: "http://chat-rooms-simple.vercel.app", // Adjust this to match your frontend URL
+        origin: "https://chat-rooms-simple.vercel.app", // Adjust this to match your frontend URL
         methods: ["GET", "POST"]
     }
 })
