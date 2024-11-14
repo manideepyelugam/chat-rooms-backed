@@ -3,12 +3,13 @@ import {Server} from 'socket.io'
 
 import http from 'http';
 
-const server = http.createServer(app); // Use HTTP for compatibility with Render's SSL
 
 
 
 const port = process.env.PORT || 3000;
 const app = express()
+
+const server = http.createServer(app); // Use HTTP for compatibility with Render's SSL
 
 const io = new Server(server,{
     cors:{
@@ -16,6 +17,7 @@ const io = new Server(server,{
         methods: ["GET", "POST"]
     }
 })
+
 
 const rooms = {};
 
